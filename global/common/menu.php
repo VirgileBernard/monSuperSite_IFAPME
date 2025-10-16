@@ -58,6 +58,20 @@
 
 
 
+
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Formulaires
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <?php for($i=1;$i <= 6;$i++) : ?>
+                <a class="dropdown-item" href="../../7-formulaires/exo<?=$i?>/index.php">exo<?=$i?></a>
+            <?php endfor; ?>
+            </div>
+        </li>
+
+
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Cas pratiques
