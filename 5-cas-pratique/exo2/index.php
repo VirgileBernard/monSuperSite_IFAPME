@@ -54,46 +54,52 @@ function e($v) { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 <head>
     <meta charset="utf-8">
     <title>Calculatrice simple</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calculatrice.css">
 </head>
 <body>
-    <h1>Calculatrice</h1>
+    <div class="calculatriceContainer">
 
-    <?php if ($error): ?>
+
+<div class="formulaire">
+    <div class="formulaireContent">
+        <h1>Calculatrice</h1>
+      
+        <form method="post" action="">
+              <div class="calculatriceElement">
+        <label class="rounded-label">
+            <!-- Premier nombre : -->
+            <input type="number" name="a" step="any" value="<?php echo e($a_raw); ?>">
+        </label>
+      
+
+            <label class="operation">
+            <!-- Opération : -->
+            <select name="op">
+                <option value="add" <?php echo ($op === 'add') ? 'selected' : ''; ?>>+</option>
+                <option value="sub" <?php echo ($op === 'sub') ? 'selected' : ''; ?>>-</option>
+                <option value="mul" <?php echo ($op === 'mul') ? 'selected' : ''; ?>>×</option>
+                <option value="div" <?php echo ($op === 'div') ? 'selected' : ''; ?>>÷</option>
+            </select>
+        </label>
+   
+        <label>
+            <!-- Deuxième nombre : -->
+            <input type="number" name="b" step="any" value="<?php echo e($b_raw); ?>">
+        </label>
+   
+     </div>
+        <button type="submit">check result</button>
+    </form>
+
+        <?php if ($error): ?>
         <p style="color:red;"><?php echo e($error); ?></p>
     <?php endif; ?>
 
     <?php if ($result !== null && $error === ''): ?>
-        <p>Résultat : <strong><?php echo e($result); ?></strong></p>
+        <p class="result"> <strong><?php echo e($result); ?></strong></p>
     <?php endif; ?>
-
-<div class="formulaire">
-        <form method="post" action="">
-        <label>
-            Premier nombre :
-            <input type="number" name="a" step="any" value="<?php echo e($a_raw); ?>">
-        </label>
-        <br><br>
-
-        <label>
-            Deuxième nombre :
-            <input type="number" name="b" step="any" value="<?php echo e($b_raw); ?>">
-        </label>
-        <br><br>
-
-        <label>
-            Opération :
-            <select name="op">
-                <option value="add" <?php echo ($op === 'add') ? 'selected' : ''; ?>>Addition (+)</option>
-                <option value="sub" <?php echo ($op === 'sub') ? 'selected' : ''; ?>>Soustraction (-)</option>
-                <option value="mul" <?php echo ($op === 'mul') ? 'selected' : ''; ?>>Multiplication (×)</option>
-                <option value="div" <?php echo ($op === 'div') ? 'selected' : ''; ?>>Division (÷)</option>
-            </select>
-        </label>
-        <br><br>
-
-        <button type="submit">Calculer</button>
-    </form>
+    </div>
+    </div>
 </div>
 </body>
 </html>
