@@ -16,9 +16,9 @@ $op = $_POST['op'] ?? 'add';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($a_raw === '' || $b_raw === '') {
-        $error = 'Veuillez fournir les deux nombres.';
+        $error = 'Faut 2 nombre pour calculer néné !';
     } elseif (!is_numeric($a_raw) || !is_numeric($b_raw)) {
-        $error = 'Entrez des nombres valides.';
+        $error = 'Entre des nombres nénés !';
     } else {
         $a = (float) $a_raw;
         $b = (float) $b_raw;
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
             case 'div':
                 if ($b == 0.0) {
-                    $error = 'Division par zéro impossible.';
+                    $error = 'On peut pas diviser par 0 néné !';
                 } else {
                     $result = $a / $b;
                 }
@@ -92,7 +92,7 @@ function e($v) { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
     </form>
 
         <?php if ($error): ?>
-        <p style="color:red;"><?php echo e($error); ?></p>
+        <p class="error"><?php echo e($error); ?></p>
     <?php endif; ?>
 
     <?php if ($result !== null && $error === ''): ?>
