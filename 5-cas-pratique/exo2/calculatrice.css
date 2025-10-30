@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
 :root {
   --glass-light: rgba(255, 255, 255, 0.2);
   --glass-dark: rgba(0, 0, 0, 0.2);
   --accent-blue: #007aff; 
   --text-color: #1d00f5a7;
+  --textFont: 'Montserrat', sans-serif;
+}
+
+*{
+  font-family: var(--textFont);
 }
 
 body{
@@ -63,6 +71,7 @@ body{
 
 .formulaire h1 {
 color: var(--accent-blue);
+font-family: var(--textFont);
 
 } 
 
@@ -75,6 +84,8 @@ margin-bottom: 5vh;
 }
 
 input, select {
+  font-family: var(--textFont);
+  font-weight: 800;
 border-radius: 50%; 
 width: 80px;
 height: 80px;

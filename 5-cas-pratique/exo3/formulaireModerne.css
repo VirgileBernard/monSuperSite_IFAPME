@@ -1,10 +1,16 @@
 /* ===========================
    RESET LÉGER / BASE
 =========================== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+* { box-sizing: border-box; margin: 0; padding: 0;}
 
 :root {
-  --fg: #1f2937;
+  --textColor: #1f2937;
+
   --muted: #6b7280;
   --primary: #ff0019;
   --primary-2: #6366f1;
@@ -13,21 +19,26 @@
   --ok-bg: #e8f5e9;
   --err: #dc3545;
   --err-bg: #fdecea;
+
+  --glass-light: rgba(255, 255, 255, 0.2);
+  --glass-dark: rgba(0, 0, 0, 0.2);
+  --accent-blue: #007aff; 
+  --textFont: 'Montserrat', sans-serif;
 }
 
 html, body { height: 100%; }
 
 body {
-  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #f6f8ff 0%, #eef2ff 100%);
+
+  background: linear-gradient(145deg,
+  var(--glass-light),
+  var(--glass-dark)
+);
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  color: var(--fg);
-  line-height: 1.45;
+  
+
 }
+
 
 
 /* ===========================
@@ -46,17 +57,30 @@ main {
    FORMULAIRE (COLONNE GAUCHE)
 =========================== */
 form {
-  background: linear-gradient(180deg, #ffffffcc, #fbfdff);
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
-  border: 1px solid rgba(99,102,241,0.06);
-  margin-right: 20px;
+  font-family: var(--textFont);
+
+  margin-top: 5vh;
+
+   /* taille du form */
+    max-width: 80%;
+    margin: 5vh auto;
+    padding: 2rem;
+    height: 60vh;
+
+    /* style du form  */
+  background:var(--glass-light); 
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(239, 239, 239, 0.966);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
 
 form h1 {
   font-size: 20px;
-  color: var(--primary);
+  color: var(--textColor);
   margin-bottom: 18px;
 }
 
