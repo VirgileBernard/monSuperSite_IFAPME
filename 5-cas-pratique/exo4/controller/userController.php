@@ -52,7 +52,7 @@ if (isset($_POST['saveUser'])) {
   
 
 
-if (isset($_POST['delete_id'])) {
+elseif (isset($_POST['delete_id'])) {
     $id = intval($_POST['delete_id']);
     $deleted = deleteUser($id); // deleteUser() renverra true/false
     if ($deleted) {
@@ -67,19 +67,34 @@ if (isset($_POST['delete_id'])) {
 }
 
 
+elseif(isset($_POST['edit_id'])) {
+    $id= intval($_POST['edit_id']);
+    $updatedUser= getUser($id);
+    if($updatedUser){
+        // Logique de mise à jour ici
+        $_SESSION['msg_type'] = 'success';
+        $_SESSION['message'] = "L'utilisateur a été mis à jour.";
+    } else {
+        $_SESSION['msg_type'] = 'warning';
+        $_SESSION['message'] = "Mise à jour impossible : utilisateur introuvable.";
+        header("Location: ../view/index.php");
+        exit();
+    }
+}
+
 function getUsers(){
     $users=getUsersDAO();
    return $users ;
 }
 
-function getUser($idUser){
-
+function updateUser(){
+    return updateUserDAO($user);
 }
 
 
 
 function saveUser($user){
-   saveUserDAO($user);
+   return saveUserDAO($user);
 }
 
 function deleteUser($idUser){

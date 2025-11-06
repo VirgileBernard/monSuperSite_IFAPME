@@ -26,7 +26,7 @@ $users=getUsers();
             <div class="alert alert-<?php echo $_SESSION["msg_type"] ;?>">
             <?php 
                 echo $_SESSION["message"] ;
-                unset($_SESSION['message']);
+                unset($_SESSION['message']);    
                 unset($_SESSION['msg_type']);
             ?>
             </div>
@@ -58,11 +58,17 @@ $users=getUsers();
                                 <td><?= $user["ddn"]?></td>
                                 <td><?= $user["age"]?></td>
                                 <td>
-                <form action="../controller/userController.php" method="POST" onsubmit="return confirm('Confirmer la suppression ?');">
-        <input type="hidden" name="delete_id" value="<?= $user['id'] ?>">
-        <button type="submit" class="btn btn-danger">Supprimer</button>
-    </form> 
-            </td>
+                                    <!-- Edit button: poste edit_id au controller -->
+                                    <form action="../controller/userController.php" method="POST" style="display:inline;">
+                                        <input type="hidden" name="edit_id" value="<?= $user['id'] ?>">
+                                        <button type="submit" class="btn btn-edit">Editer</button>
+                                    </form>
+
+                                    <form action="../controller/userController.php" method="POST" onsubmit="return confirm('Confirmer la suppression ?');" style="display:inline;">
+                                        <input type="hidden" name="delete_id" value="<?= $user['id'] ?>">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </form> 
+                                </td>
                             </tr>
                        <?php endforeach; ?>
                 </tbody>
