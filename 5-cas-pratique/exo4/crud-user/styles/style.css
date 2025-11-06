@@ -1,0 +1,16 @@
+.btn-container{
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 8px 14px;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #0056b3;   /* Bleu plus foncé au survol */
+    cursor: pointer;
+  }
+  

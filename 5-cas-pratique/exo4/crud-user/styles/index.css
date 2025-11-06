@@ -1,0 +1,133 @@
+/* --- 1. Base et Conteneur --- */
+:root {
+    --color-primary: #1e88e5; /* Bleu standard */
+    --color-bg-light: #f4f7f6; /* Fond très clair */
+    --color-text: #34495e;     /* Texte sombre */
+    --color-border: #dfe6e9;   /* Bordure de tableau */
+    --color-success: #2ecc71;  /* Vert pour le succès */
+    --color-danger: #e74c3c;   /* Rouge pour l'erreur */
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container > p {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+/* --- 2. Styles de Tableau --- */
+.formSection {
+    overflow-x: auto; /* Utile pour les petits écrans */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Enlève les doubles bordures */
+    margin-bottom: 20px;
+}
+
+/* En-tête du tableau */
+thead tr {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+}
+
+/* Corps du tableau */
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f8f8; /* Alternance de couleurs pour la lisibilité */
+}
+
+tbody tr:hover {
+    background-color: #e8f4f8; /* Mettre en surbrillance au survol */
+}
+
+/* --- 3. Bouton "New user" --- */
+.btn-container {
+    text-align: right;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-success);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #27ae60;
+}
+
+/* --- 4. Messages d'Alerte (Session) --- */
+.alert {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 4px;
+    font-weight: 600;
+    opacity: 0.95;
+    animation: fadeout 5s forwards; /* Animation d'auto-masquage (optionnel) */
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Keyframes pour l'animation (Optionnel) */
+@keyframes fadeout {
+    0% { opacity: 0.95; }
+    80% { opacity: 0.95; }
+    100% { opacity: 0; display: none; }
+}
+
+.btn {
+    padding: 8px 14px;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #0056b3;   /* Bleu plus foncé au survol */
+    cursor: pointer;
+  }

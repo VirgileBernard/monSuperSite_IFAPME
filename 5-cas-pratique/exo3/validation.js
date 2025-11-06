@@ -10,6 +10,9 @@ document.getElementById('myValidatedForm').addEventListener('submit', function(e
     const errorMessageEmail = document.getElementById('errorMessageEmail');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    const ageInput = document.getElementById('age');
+    const errorMessageAge = document.getElementById('errorMessageAge');
+
     // Validation du prénom
     if (prenomInput.value.trim() === '') {
         isValid = false;
@@ -33,6 +36,16 @@ document.getElementById('myValidatedForm').addEventListener('submit', function(e
         emailInput.classList.remove('input-error');
         emailInput.classList.add('input-valid');
         errorMessageEmail.classList.add('hidden');
+    }
+    if (ageInput.value.trim() === '' ||  isNaN(ageInput.value) || parseInt(ageInput.value) < 10 || parseInt(ageInput.value) > 99) {
+        ageInput.classList.add('input-error');
+        ageInput.classList.remove('input-valid');
+        errorMessageAge.classList.remove('hidden');
+        errorMessageAge.textContent = "L'âge doit être un nombre entre 10 et 99.";
+    } else {
+        ageInput.classList.remove('errorMessageAge');
+        ageInput.classList.add('input-valid');
+        errorMessageAge.classList.add('hidden');
     }
     // Empêche l'envoi si le formulaire n'est pas valide
     if (!isValid) {

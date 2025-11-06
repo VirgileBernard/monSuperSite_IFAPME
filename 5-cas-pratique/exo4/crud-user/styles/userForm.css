@@ -1,0 +1,151 @@
+/* --- 1. Variables et Base (Harmonisation) --- */
+:root {
+  /* Utilisation des variables de l'index pour la cohérence */
+  --color-primary: #007bff; /* Bleu standard pour les actions (boutons) */
+  --color-text: #34495e;     /* Texte sombre */
+  --color-muted: #6b7280;    /* Texte gris */
+  --color-bg-light: #f4f7f6; /* Fond très clair (du body) */
+  
+  /* Couleurs de feedback */
+  --color-success: #28a745; 
+  --color-danger: #e74c3c;   
+  
+  /* Styles de Formulaire */
+  --color-border: #ced4da; /* Bordure standard */
+  --color-input-bg: #fcfcfc;
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-family: var(--font-stack);
+  background-color: var(--color-bg-light);
+  color: var(--color-text);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- 2. Conteneur du Formulaire (Carte) --- */
+#userForm {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-base);
+  max-width: 450px;
+  width: 100%;
+}
+
+h1 {
+  color: var(--color-primary); /* Titre en Bleu standard */
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#userForm p {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 25px;
+}
+
+/* --- 3. Champs de Formulaire (c100) --- */
+.c100 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-sizing: border-box; 
+  background-color: var(--color-input-bg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); /* Ombre de focus légère */
+  outline: none;
+}
+
+/* --- 4. Boutons Radio (Genre) --- */
+.c100[aria-labelledby="genre-label"] > div {
+  display: inline-block;
+  margin-right: 20px;
+}
+.c100[aria-labelledby="genre-label"] label {
+  display: inline;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* --- 5. Bouton Soumettre --- */
+#submit {
+  margin-top: 30px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: var(--color-primary); /* Bleu standard */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9; /* Bleu plus sombre au survol */
+  transform: translateY(-1px);
+}
+
+/* --- 6. Messages d'Erreur (Validation JS) --- */
+.error-message {
+  color: var(--color-danger);
+  font-size: 0.9em;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- 7. Messages d'Alerte (Validation Serveur PHP) --- */
+/* (Style qui doit également être dans index.css pour la cohérence) */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
