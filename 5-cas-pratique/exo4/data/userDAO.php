@@ -99,7 +99,6 @@ function deleteUserDAO($id) {
 
     $statement->close();
     $connection->close();
-
     return $rows_affected > 0;
 }
 
