@@ -11,7 +11,7 @@ if (isset($_POST['saveUser'])) {
    $ddn = trim($_POST['ddn'] ?? '');
    $gender = $_POST['gender'] ?? ''; // trim() n'est pas nécessaire pour un champ radio
    
-   // 2. Création d'un tableau associatif pour une meilleure lisibilité
+   // 2. Création d'un tableau associatif pour une créer user model
    $user = [
        'nom' => $nom,
        'prenom' => $prenom,
@@ -30,7 +30,13 @@ if (isset($_POST['saveUser'])) {
        exit();
    }
    // verifier si la ddn est < date d'aujourd'hui
-
+    // $today = date("Y-m-d");
+    // if (!empty($user['ddn']) || $user['ddn'] >= $today) {
+    //      $_SESSION['msg_type'] = 'warning';
+    //      $_SESSION['message'] = "Erreur: La date de naissance doit être antérieure à aujourd'hui.";
+    //      header("Location: index.php"); 
+    //      exit();
+    // }
 
    
    
@@ -44,6 +50,22 @@ if (isset($_POST['saveUser'])) {
    exit(); // 🛑 CRUCIAL : Arrête l'exécution après la redirection
 }
   
+
+
+if (isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
+    $deleted = deleteUser($id); // deleteUser() renverra true/false
+    if ($deleted) {
+        $_SESSION['msg_type'] = 'success';
+        $_SESSION['message'] = "L'utilisateur a été supprimé.";
+    } else {
+        $_SESSION['msg_type'] = 'warning';
+        $_SESSION['message'] = "Suppression impossible : utilisateur introuvable.";
+    }
+    header("Location: ../view/index.php");
+    exit();
+}
+
 
 function getUsers(){
     $users=getUsersDAO();
@@ -61,6 +83,6 @@ function saveUser($user){
 }
 
 function deleteUser($idUser){
-
+    return deleteUserDAO($idUser);
 }
 ?>

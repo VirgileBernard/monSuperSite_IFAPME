@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 /* --- 1. Variables et Base (Harmonisation) --- */
 :root {
   /* Utilisation des variables de l'index pour la cohérence */
   --color-primary: #007bff; /* Bleu standard pour les actions (boutons) */
   --color-text: #34495e;     /* Texte sombre */
   --color-muted: #6b7280;    /* Texte gris */
-  --color-bg-light: #f4f7f6; /* Fond très clair (du body) */
+  --glass-light: rgba(255, 255, 255, 0.2); /* Fond très clair (du body) */
+  --glass-dark: rgba(0, 0, 0, 0.2);
   
   /* Couleurs de feedback */
   --color-success: #28a745; 
@@ -14,12 +17,31 @@
   --color-border: #ced4da; /* Bordure standard */
   --color-input-bg: #fcfcfc;
   --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-stack: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+
+/* :root {
+  --textColor: #1f2937;
+
+  --muted: #6b7280;
+  --primary: #ff0019;
+  --primary-2: #6366f1;
+  --focus: #7c3aed;
+  --ok: #28a745;
+  --ok-bg: #e8f5e9;
+  --err: #dc3545;
+  --err-bg: #fdecea;
+
+  --accent-blue: #007aff; 
+} */
 
 body {
   font-family: var(--font-stack);
-  background-color: var(--color-bg-light);
+  background: linear-gradient(145deg,
+  var(--glass-light),
+  var(--glass-dark)
+);
   color: var(--color-text);
   margin: 0;
   padding: 20px;

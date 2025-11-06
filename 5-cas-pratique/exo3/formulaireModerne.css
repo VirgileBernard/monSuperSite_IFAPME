@@ -20,7 +20,7 @@
   --err: #dc3545;
   --err-bg: #fdecea;
 
-  --glass-light: rgba(255, 255, 255, 0.2);
+ --glass-light: rgba(255, 255, 255, 0.2); /* Fond très clair (du body) */
   --glass-dark: rgba(0, 0, 0, 0.2);
   --accent-blue: #007aff; 
   --textFont: 'Montserrat', sans-serif;

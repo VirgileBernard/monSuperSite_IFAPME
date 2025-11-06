@@ -80,6 +80,7 @@
                 <a class="dropdown-item" href="../../5-cas-pratique/exo1/index.php">exo1</a>
                 <a class="dropdown-item" href="../../5-cas-pratique/exo2">exo2</a>
                 <a class="dropdown-item" href="../../5-cas-pratique/exo3">exo3</a>
+                <a class="dropdown-item" href="../../5-cas-pratique/exo4/view/">exo4</a>
             </div>
         </li>
         

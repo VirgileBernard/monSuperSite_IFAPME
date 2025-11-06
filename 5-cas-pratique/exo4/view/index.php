@@ -1,5 +1,12 @@
+<?php ob_start(); //NE PAS MODIFIER 
+$titre = "Exo 4 : Formulaire d'utilisateur"; //Mettre le nom du titre de la page que vous voulez
+?>
+
+
 <?php
 require_once __DIR__ . "/../controller/userController.php";
+
+
 
 $users=getUsers();
 ?>
@@ -37,6 +44,7 @@ $users=getUsers();
                         <th>Sexe</th>
                         <th>Date of birth</th>
                         <th>Age</th>
+                        <th>Action</th>
             
                     </tr>
                 </thead>
@@ -49,6 +57,12 @@ $users=getUsers();
                                 <td><?= $user["gender"]?></td>
                                 <td><?= $user["ddn"]?></td>
                                 <td><?= $user["age"]?></td>
+                                <td>
+                <form action="../controller/userController.php" method="POST" onsubmit="return confirm('Confirmer la suppression ?');">
+        <input type="hidden" name="delete_id" value="<?= $user['id'] ?>">
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form> 
+            </td>
                             </tr>
                        <?php endforeach; ?>
                 </tbody>
@@ -64,3 +78,5 @@ $users=getUsers();
     
 </body>
 </html>
+
+

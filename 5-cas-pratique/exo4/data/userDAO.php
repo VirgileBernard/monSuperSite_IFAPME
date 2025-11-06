@@ -73,10 +73,34 @@ function saveUserDAO($user){
     
 
 }
+
+
+
 // ... autres fonctions DAO
 // function getUser($id){
 //     $connxion=getConnexion();
 
 //     $sql= "select * from users where id= ?";
 // }
+
+
+//foncition pour supprimer un utilisateur
+function deleteUserDAO($id) {
+    $connection = get_connection();
+
+    $sql = "DELETE FROM users WHERE id = ?";
+    $statement = $connection->prepare($sql);
+
+
+    $statement->bind_param("i", $id);
+    $statement->execute();
+
+    $rows_affected = $statement->affected_rows;
+
+    $statement->close();
+    $connection->close();
+
+    return $rows_affected > 0;
+}
+
 ?>
