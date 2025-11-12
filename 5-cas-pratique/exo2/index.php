@@ -1,7 +1,7 @@
-<!-- <?php ob_start(); 
+<?php ob_start(); 
 $titre = "Exo 2 : Calculatrice";
 ?>
- -->
+
 
 
 
@@ -59,14 +59,14 @@ function e($v) { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Calculatrice simple</title>
+    <title>Calculatrice</title>
     <link rel="stylesheet" href="calculatrice.css">
     <!-- font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <section>
-    <h1>Calculatrice</h1>
+    <!-- <h1>Calculatrice</h1> -->
     <button onclick="toggleMode()">Light mode</button>
 
     <div class="calculatrice">
