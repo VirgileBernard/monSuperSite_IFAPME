@@ -13,6 +13,13 @@ document.getElementById('myValidatedForm').addEventListener('submit', function(e
     const ageInput = document.getElementById('age');
     const errorMessageAge = document.getElementById('errorMessageAge');
 
+    
+
+
+   document.getElementById('toggleModeBtn').addEventListener('click', function(){
+    document.body.classList.toggle('light');
+});
+
     // Validation du prénom
     if (prenomInput.value.trim() === '') {
         isValid = false;

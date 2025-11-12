@@ -1,42 +1,124 @@
-/* ===========================
-   RESET LÉGER / BASE
-=========================== */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 
-* { box-sizing: border-box; margin: 0; padding: 0;}
-
+/* 🎨 Thème sombre par défaut */
 :root {
-  --textColor: #1f2937;
+  --bg-dark: hsl(0 0% 0%);
+  --bg: hsl(0 0% 5%);
+  --bg-light: hsl(0 0% 10%);
 
-  --muted: #6b7280;
-  --primary: #ff0019;
-  --primary-2: #6366f1;
-  --focus: #7c3aed;
-  --ok: #28a745;
-  --ok-bg: #e8f5e9;
-  --err: #dc3545;
-  --err-bg: #fdecea;
+  --action: hsl(59, 90%, 60%);
 
- --glass-light: rgba(255, 255, 255, 0.2); /* Fond très clair (du body) */
-  --glass-dark: rgba(0, 0, 0, 0.2);
-  --accent-blue: #007aff; 
-  --textFont: 'Montserrat', sans-serif;
-}
+  --text: hsl(0 0% 95%);
+  --text-muted: hsl(0 0% 70%);
+  --text-font: 'Montserrat', sans-serif;
 
-html, body { height: 100%; }
 
-body {
+  --border: hsl(0 0% 30%);
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --highlight: hsl(0 0% 60%);
+  --border-card: solid 1px var(--border);
 
-  background: linear-gradient(145deg,
-  var(--glass-light),
-  var(--glass-dark)
-);
-  min-height: 100vh;
+/* ombres */
+  --shadow-s: inset 0 1px 2px #ffffff30, /* top highlight */
+  0 1px 2px #00000030, /* dark shadow */
+  0 2px 4px #00000015; /* soft shadow */
+
+  --shadow-m : inset 0 1px 2px #ffffff50, /* top highlight */
+  0 2px 4px #00000030, /* dark shadow */
+  0 4px 8px #00000015; /* soft shadow */
+
+    --shadow-l : inset 0 1px 2px #ffffff70, /* top highlight */
+  0 4px 6px #00000030, /* dark shadow */
+  0 6px 10px #00000015; /* soft shadow */
   
 
+
+}
+
+/* Si l'utilisateur a un thème clair dans son OS */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dark: hsl(0 0% 90%);
+    --bg: hsl(0 0% 95%);
+    --bg-light: hsl(0 0% 100%);
+    --text: hsl(0 0% 5%);
+    --text-muted: hsl(0 0% 30%);
+
+     --action: hsl(220 90% 60%);
+
+    --border: hsl(0 0% 30%);
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --highlight: hsl(0 0% 100%);
+    --border-card: solid 1px var(--bg);
+
+    /* ombres */
+  --shadow-s: inset 0 1px 2px #ffffff30, /* top highlight */
+  0 1px 2px #00000030, /* dark shadow */
+  0 2px 4px #00000015; /* soft shadow */
+
+  --shadow-m : inset 0 1px 2px #ffffff50, /* top highlight */
+  0 2px 4px #00000030, /* dark shadow */
+  0 4px 8px #00000015; /* soft shadow */
+
+    --shadow-l : inset 0 1px 2px #ffffff70, /* top highlight */
+  0 4px 6px #00000030, /* dark shadow */
+  0 6px 10px #00000015; /* soft shadow */
+  }
+}
+
+/* Si l'utilisateur clique sur ton bouton → force le thème clair */
+body.light {
+  --bg-dark: hsl(0 0% 90%);
+  --bg: hsl(0 0% 95%);
+  --bg-light: hsl(0 0% 100%);
+  --text: hsl(0 0% 5%);
+  --text-muted: hsl(0 0% 30%);
+
+   --action: hsl(220 90% 60%);
+
+     --border: hsl(0 0% 30%);
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --highlight: hsl(0 0% 100%);
+    --border-card: solid 1px var(--bg);
+
+    /* ombres */
+  --shadow-s: inset 0 1px 2px #ffffff30, /* top highlight */
+  0 1px 2px #00000030, /* dark shadow */
+  0 2px 4px #00000015; /* soft shadow */
+
+  --shadow-m : inset 0 1px 2px #ffffff50, /* top highlight */
+  0 2px 4px #00000030, /* dark shadow */
+  0 4px 8px #00000015; /* soft shadow */
+
+    --shadow-l : inset 0 1px 2px #ffffff70, /* top highlight */
+  0 4px 6px #00000030, /* dark shadow */
+  0 6px 10px #00000015; /* soft shadow */
+}
+
+
+
+body{
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  font-family: var(--text-font);
+}
+
+button{
+  background: var(--bg-light);
+  color: var(--text);
+  font-family: var(--text-font);
+  font-weight: 700;
+  padding: 0.5rem 1rem 0.7rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: var(--border-card);
+  border-top: solid 1px var(--highlight);
+  box-shadow: var(--shadow-s);
 }
 
 

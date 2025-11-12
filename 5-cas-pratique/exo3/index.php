@@ -11,9 +11,12 @@ $titre = "Exo 3 : Formulaire"; //Mettre le nom du titre de la page que vous voul
         <link rel="stylesheet" href="formulaireModerne.css">
     </head>
     <body>
+
+        <h1>Formulaire de validation</h1>
+            <button id="toogleModeBtn">Light mode</button>
     <form id="myValidatedForm" action="process.php" method="post">
         
-            <h1>Formulaire de validation</h1>
+    
 
             <div class="c100">
                 <label for="prenom">Prénom :</label>
@@ -38,7 +41,9 @@ $titre = "Exo 3 : Formulaire"; //Mettre le nom du titre de la page que vous voul
             </div>
         </form>
 
-        <script src="validation.js"></script>
+        <script src="validation.js">
+
+        </script>
     </body>
 </html>
 <?php
