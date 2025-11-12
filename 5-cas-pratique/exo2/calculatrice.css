@@ -170,22 +170,42 @@ section{
   background-color: var(--bg-light);
   border-radius: 12px;
   padding: 16px;
-  width: 130px;
+  width: 10vw;
   text-align: center;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: 2px solid transparent;
   box-shadow: var(--shadow-m);
 }
 
-.card:hover,
-#submit{
+.card:hover{
   box-shadow: var(--shadow-l);
   background: var(--gradient-hover);
 }
 
 .card input {
   display: none;
+}
+
+.card:has(input:checked) {
+  background-color: var(--action);
+  color: var(--bg-dark); /* ajuste contraste si besoin */
+  border: px solid var(--action);
+}
+
+
+/* fallback for browsers without :has(): expand .content to cover the card */
+.card input:checked + .content {
+  background-color: var(--action);
+  margin: -16px;            /* equal to .card padding */
+  padding: 16px;           /* keep inner spacing */
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+
+.card input:checked + :hover{
+  /* box-shadow: var(--shadow-l); */
+  background: var(--action);
 }
 
 
@@ -203,15 +223,24 @@ section{
 }
 
 
-.card input:checked + .content {
-  /* border-radius: 8px; */
-  background-color: var(--action); /* Change this to the desired color */
-  /* box-shadow: 0 0 0 2px var(--highlight); */
-}
 
-
-#submit{
+.submit{
   max-width: 30%;
   min-width: 150px;
   margin: 0 auto;
+  box-shadow: var(--shadow-m);
+  background: var(--gradient);
+}
+
+.submit:hover{
+  box-shadow: var(--shadow-l);
+  background: var(--gradient-hover);
+}
+
+.result{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: var(--text);
 }

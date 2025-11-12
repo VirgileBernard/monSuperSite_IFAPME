@@ -115,7 +115,7 @@ function e($v) { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
             <input type="number" name="b" step="any" value="<?php echo e($b_raw); ?>">
         </label>
 
-        <button type="submit" id="submit">check result</button>
+        <button type="submit" class="submit">check result</button>
     </form>
 
     <?php if ($error): ?>
