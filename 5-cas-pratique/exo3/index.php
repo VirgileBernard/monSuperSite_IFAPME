@@ -12,10 +12,9 @@ $titre = "Exo 3 : Formulaire"; //Mettre le nom du titre de la page que vous voul
     </head>
     <body>
 
-        <h1>Formulaire de validation</h1>
             <button id="toogleModeBtn">Light mode</button>
     <form id="myValidatedForm" action="process.php" method="post">
-        
+                <h3>Formulaire de validation</h3>
     
 
             <div class="c100">
@@ -36,8 +35,8 @@ $titre = "Exo 3 : Formulaire"; //Mettre le nom du titre de la page que vous voul
                 <p id="errorMessageAge" class="hidden">L'âge doit être un nombre entre 10 et 99.</p>
             </div>
 
-            <div class="c100" id="submit">
-                <input type="submit" name="submit" value="Envoyer">
+            <div id="submit">
+                <input type="submit" name="submit" value="Envoyer" class="submit">
             </div>
         </form>
 

@@ -121,255 +121,119 @@ button{
   box-shadow: var(--shadow-s);
 }
 
+form{
+    background: var(--bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    height: 30%;
+    width: 60vw;
+    margin: 0 auto;
+    border-top : solid 1px var(--highlight); 
+    min-height: 30vh;
 
-
-/* ===========================
-   LAYOUT
-=========================== */
-main {
-  width: 100%;
-  max-width: 920px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 30px;
-  align-items: start;
+    display: grid;
 }
 
-/* ===========================
-   FORMULAIRE (COLONNE GAUCHE)
-=========================== */
-form {
-  font-family: var(--textFont);
-
-  margin-top: 5vh;
-
-   /* taille du form */
-    max-width: 80%;
-    margin: 5vh auto;
-    padding: 2rem;
-    height: 60vh;
-
-    /* style du form  */
-  background:var(--glass-light); 
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(239, 239, 239, 0.966);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-  border-radius: 16px;
-  transition: all 0.3s ease;
+form:hover{
+    box-shadow: var(--shadow-l);
+  background: var(--gradient-hover);
 }
 
-form h1 {
-  font-size: 20px;
-  color: var(--textColor);
-  margin-bottom: 18px;
-}
 
 /* Champs */
-.c100 { margin-bottom: 14px; display: flex; flex-direction: column; }
+.c100 { margin-bottom: 14px;
+    display: flex;
+  flex-direction: column; }
 
-label {
-  font-weight: 600;
-  font-size: 13px;
-  color: #374151;
-  margin-bottom: 6px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="tel"],
-input[type="date"],
-select,
-textarea {
-  padding: 12px 14px;
-  font-size: 15px;
-  border-radius: 10px;
-  border: 1px solid #e6e9f2;
-  background: #fff;
-  transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease, background-color .18s ease;
-}
-
-textarea { min-height: 110px; resize: vertical; }
-
-/* Focus générique (sera surchargé par .input-valid / .input-error si présents) */
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--focus);
-  box-shadow: 0 6px 20px rgba(124,58,237,0.12);
-  transform: translateY(-1px);
-}
-
-/* Messages d’aide / d’erreur près des champs */
-.help,
-.error-message {
-  font-size: 0.9em;
-  margin-top: 6px;
-}
-
-.help { color: #4b5563; }
-.error-message { color: var(--err); }
-
-/* Bouton Submit */
-#submit { display:flex; justify-content:flex-end; margin-top: 8px; }
-
-input[type="submit"],
-button[type="submit"] {
-  background: linear-gradient(90deg, #6d28d9, #8b5cf6);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(99,102,241,0.18);
-  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
-}
-
-input[type="submit"]:hover,
-button[type="submit"]:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(99,102,241,0.22);
-}
-
-input[type="submit"]:disabled,
-button[type="submit"]:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: 0 6px 18px rgba(99,102,241,0.12);
-}
-
-/* ===========================
-   PANNEAU RÉSULTATS (COLONNE DROITE)
-=========================== */
-.result { align-self: start; }
-
-.result-header {
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-bottom: 12px;
-}
-
-.result-header .icon { font-size: 28px; }
-
-.result h2 { font-size: 18px; color: #111827; }
-
-.card {
-  background: linear-gradient(180deg, #ffffff, #fbfdff);
-  border-radius: 12px;
-  padding: 16px;
-  border: 1px solid rgba(99,102,241,0.06);
-  box-shadow: 0 10px 30px rgba(16,24,40,.06);
-}
-
-.row {
-  display:flex;
-  justify-content: space-between;
+#myValidatedForm {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 1ère colonne large, 2ème étroite */
+  grid-template-rows: repeat(5, auto); /* 5 lignes */
+  gap: 10px 20px; /* espace entre les éléments */
   align-items: center;
-  padding: 10px 8px;
-  border-radius: 8px;
-  transition: background .12s ease;
 }
 
-.row + .row { margin-top: 8px; }
-
-.label {
-  font-size: 13px;
-  color: var(--muted);
+/* Place le bouton sur la 2ème colonne, couvrant toutes les lignes */
+#submit {
+  grid-column: 2;
+  grid-row: 1 / 6; /* couvre les 5 lignes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.value {
+/* Pour forcer les .c100 et le titre dans la 1ère colonne */
+#myValidatedForm > h3,
+#myValidatedForm > .c100 {
+  grid-column: 1;
+}
+
+
+
+
+/* 🔻 Responsive : sous 750px */
+@media (max-width: 750px) {
+  #myValidatedForm {
+    grid-template-columns: 1fr; /* 1 seule colonne */
+    grid-template-rows: auto; /* ajustement automatique */
+  }
+
+  #submit {
+    grid-column: 1; /* même colonne */
+    grid-row: auto; /* se place naturellement après les champs */
+    justify-content: center; /* optionnel : aligne à gauche */
+    margin-top: 15px; /* petit espace au-dessus */
+  }
+}
+
+
+
+.submit{
+  max-width: 30%;
+  min-width: 150px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-m);
+  /* background: var(--gradient); */
+
+    background: var(--action);
+  color: var(--bg);
+  font-family: var(--text-font);
   font-weight: 700;
-  color: #111827;
+  padding: 0.5rem 1rem 0.7rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  /* margin-bottom: 1rem; */
+  border: var(--border-card);
+  border-top: solid 1px var(--highlight);
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+
+
 }
 
-/* ===========================
-   ÉTATS DE RÉSULTAT + ICONES
-=========================== */
-.result-header .icon::before {
-  font-family: Arial, sans-serif;
-  display: inline-block;
-  color: var(--primary);
+.submit:hover{
+  box-shadow: var(--shadow-l);
+  background: var(--gradient-hover);
+  color: var(--action);
 }
 
-.result.success .result-header .icon::before { content: "\2705"; }
-.result.success .result-header .icon      { filter: hue-rotate(60deg) saturate(120%); }
 
-.result.error .result-header .icon::before { content: "\274C"; }
-.result.error .result-header .icon         { filter: hue-rotate(-20deg) saturate(120%); }
-
-.result.error .card {
-  border-color: #fecaca;
-  background: linear-gradient(180deg,#fff7f7,#fffdfa);
-  box-shadow: 0 8px 22px rgba(220,38,38,0.06);
+.input-valid{
+border-radius: 8px;
+height: 40px;
+border: none;
 }
 
-.result.error .card ul {
-  list-style: disc;
-  padding-left: 18px;
-  color: #7f1d1d;
-  font-weight: 600;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: 2px solid var(--action); /* bordure fine */
+  /* box-shadow: 0 0 0 6px rgba(255,204,0,0.12), var(--shadow-m);  */
+  border-radius: 6px;
 }
 
-/* ===========================
-   VALID / ERROR INPUT STATES
-   (spécificité + focus préservé)
-=========================== */
-input.input-valid,
-select.input-valid,
-textarea.input-valid {
-  border: 2px solid var(--ok);
-  background-color: var(--ok-bg);
-}
 
-input.input-error,
-select.input-error,
-textarea.input-error {
-  border: 2px solid var(--err);
-  background-color: var(--err-bg);
-}
-
-/* Conserver la couleur au focus selon l'état */
-input.input-valid:focus,
-select.input-valid:focus,
-textarea.input-valid:focus {
-  border-color: var(--ok);
-  box-shadow: 0 6px 20px rgba(40,167,69,0.18);
-  transform: translateY(-1px);
-}
-
-input.input-error:focus,
-select.input-error:focus,
-textarea.input-error:focus {
-  border-color: var(--err);
-  box-shadow: 0 6px 20px rgba(220,53,69,0.18);
-  transform: translateY(-1px);
-}
-
-/* Icône d'état optionnelle à droite du champ */
-.field-with-status {
-  position: relative;
-}
-.field-with-status input,
-.field-with-status select,
-.field-with-status textarea {
-  padding-right: 42px; /* espace pour icône */
-}
-.field-with-status .status-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  translate: 0 -50%;
-  font-size: 18px;
-  pointer-events: none;
-}
-.field-with-status .status-icon.ok { color: var(--ok);  content: "✓"; }
-.field-with-status .status-icon.err { color: var(--err); content: "×"; }
 
 /* ===========================
    UTILITAIRES
