@@ -222,6 +222,8 @@ form:hover{
 border-radius: 8px;
 height: 40px;
 border: none;
+border: .5px solid var(--border);
+padding: .5rem;
 }
 
 input:focus,
