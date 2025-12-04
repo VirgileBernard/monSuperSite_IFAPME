@@ -18,9 +18,9 @@ $titre = "Exo 1 : Tableaux d'animaux"; //Mettre le nom du titre de la page que v
 <div class="animauxContainer">
         <h1>Animalerie de l'IFAPME</h1>
      <div class="filtres">
-<a href="?type=tous">tous</a>
-<a href="?type=chiens">chiens</a>
-<a href="?type=chats">chats</a>
+<a href="?type=tous" class="filter">tous</a>
+<a href="?type=chiens" class="filter">chiens</a>
+<a href="?type=chats" class="filter">chats</a>
 
 </div>
 <?php

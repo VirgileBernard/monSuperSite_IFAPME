@@ -8,6 +8,29 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+
+.filtres{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;    
+}
+
+.filter{
+    padding: .5rem;
+    border : 1px solid  hsl(59, 90%, 60%);
+    color:hsl(0 0% 95%);
+    text-decoration: none;
+}
+
+.filter:hover{
+    border : 1px solid  hsl(59, 90%, 60%);
+    background-color:hsl(59, 90%, 60%) ;
+    color:hsl(0 0% 0%);
+    text-decoration: none;
+}
+
+
 .animauxContainer{
     border : 1px solid hsl(0 0% 30%);   
     border-radius: 8px;
