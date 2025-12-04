@@ -40,7 +40,7 @@
 /* Si l'utilisateur a un thème clair dans son OS */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-dark: hsl(0 0% 90%);
+    --bg-dark: hsl(0, 0%, 90%);
     --bg: hsl(0 0% 95%);
     --bg-light: hsl(0 0% 100%);
     --text: hsl(0 0% 5%);
